@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.title }} | Flask Demo{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-5 mb-3">{{ info.title }}</h1>
+            <p class="lead text-secondary">{{ info.description }}</p>
+        </div>
+    </div>
+    
+    <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+            <div class="card bg-dark-subtle border-secondary">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">Flask Application Structure</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        {% for key, value in info.features.items() %}
+                            <div class="col-md-6">
+                                <div class="card h-100 bg-dark border-secondary">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="feature-icon">
+                                                {% if key == "Blueprints" %}
+                                                    <i class="bi bi-diagram-3 fs-2 text-primary"></i>
+                                                {% elif key == "Templates" %}
+                                                    <i class="bi bi-layout-text-window fs-2 text-info"></i>
+                                                {% elif key == "Static Files" %}
+                                                    <i class="bi bi-folder2-open fs-2 text-warning"></i>
+                                                {% elif key == "Configuration" %}
+                                                    <i class="bi bi-gear fs-2 text-secondary"></i>
+                                                {% endif %}
+                                            </div>
+                                            <h3 class="h5 mb-0 ms-3">{{ key }}</h3>
+                                        </div>
+                                        <p class="mb-0">{{ value }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card bg-dark-subtle border-secondary">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">Project Organization</h2>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-dark text-light p-3 border border-secondary rounded mb-0"><code>flask_demo/
+├── app/                    # Application package
+│   ├── __init__.py         # Application factory
+│   ├── config.py           # Configuration settings
+│   ├── models/             # Database models
+│   │   ├── __init__.py     # DB initialization
+│   │   └── user.py         # User and Post models
+│   ├── forms/              # WTForms forms
+│   │   ├── __init__.py     # Package initialization
+│   │   ├── auth.py         # Authentication forms
+│   │   └── post.py         # Post forms
+│   ├── static/             # Static files (CSS, JS, images)
+│   │   ├── css/            # CSS files
+│   │   ├── js/             # JavaScript files
+│   │   └── img/            # Image files
+│   ├── templates/          # HTML templates
+│   │   ├── base.html       # Base template
+│   │   ├── home/           # Home page templates
+│   │   ├── about/          # About page templates
+│   │   ├── auth/           # Authentication templates
+│   │   └── posts/          # Blog post templates
+│   └── views/              # Blueprint modules
+│       ├── __init__.py     # Package initialization
+│       ├── home.py         # Home routes
+│       ├── about.py        # About routes
+│       ├── auth.py         # Authentication routes
+│       └── posts.py        # Blog post routes
+├── .env                    # Environment variables
+├── requirements.txt        # Python dependencies
+├── run.py                  # Application entry point
+└── README.md               # Project documentation</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <a href="{{ url_for('home.index') }}" class="btn btn-primary">
+                <i class="bi bi-house-door me-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

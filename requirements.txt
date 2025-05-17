@@ -1,0 +1,29 @@
+# Flask Demo Application Dependencies
+
+# Core Flask framework
+Flask==2.3.3
+
+# Database and ORM
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.5
+
+# Form handling
+Flask-WTF==1.2.1
+email_validator==2.1.0
+
+# User authentication
+Flask-Login==0.6.3
+
+# Email and other utilities
+# Flask-Mail==0.9.1
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# Development tools
+# Uncomment if needed
+# flask-debugtoolbar==0.13.1
+
+# Production dependencies
+# Uncomment for production deployment
+# gunicorn==21.2.0        # WSGI HTTP Server for production 
